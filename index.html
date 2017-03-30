@@ -1,0 +1,49 @@
+<html ng-app="app">
+    <meta charset="utf-8"/>
+<head>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="JS/app.js"> </script>
+      <style>
+          .jumbotron {
+			width: 400px;
+			text-align: center;
+			margin-top: 20px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+        .form-control{
+        	margin-bottom: 5px;
+        }
+
+    </style>
+
+</head>
+
+ <body ng-controller="produtoController">
+     <div class="jumbotron">
+        <form ng-submit="cadastrarCor(cor)">    
+                 <h3>{{app}}</h3>
+        <input class="form-control" type="text" name="idCor" ng-model="cor.id" placeholder="ID">
+        <input class="form-control" type="text" name="nomeCor" ng-model="cor.nome" placeholder="COR">
+        <button class="btn btn-primary btn-clock" type="submit">CADASTRAR</button>
+        </form>
+
+        <table class="table table-striped">
+            <tr> 
+                <th>ID</th>
+                <th>COR</th>
+            </tr>
+
+            <tr ng-repeat="c in cores">
+                <td class="teste">{{c.id}}</td>
+                <td class="teste">{{c.nome}}</td>
+                <td>
+                    <a href="#" ng-click="excluirCor(c)">EXCLUIR</a>
+                    <a href="#" ng-click="editarCor(c)">EDITAR</a>
+                </td>
+            </tr>
+        </table>
+     </div>
+</body>
+</html>
